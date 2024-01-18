@@ -33,7 +33,7 @@ public class InputParseFile {
 
         private void ParseUserString() {
             if (words.length != 6) {
-                throw new RuntimeException("Вводимое значение строки с данными не может быть пустым и должны быть " +
+                throw new RuntimeException("Вводимое значение строки с данными не могут быть пустыми и должны быть " +
                         "в формате\nФамилия Имя Отчество ДатаРождения(dd.mm.yyyy) Телефон Пол(f/m)\n" +
                         "nпопробуйте снова!");
             }
@@ -43,14 +43,14 @@ public class InputParseFile {
         private void EnterFirstName() {
             firstName = words[1];
             if (firstName.equals("")) {
-                throw new RuntimeException("Вводимое значение не может быть пустым,\nпопробуйте снова!");
+                throw new RuntimeException("Вводимое значение Имя не может быть пустым,\nпопробуйте снова!");
             }
         }
 
         private void EnterLastName() {
             lastName = words[0];
             if (lastName.equals("")) {
-                throw new RuntimeException("Вводимое значение не может быть пустым,\nпопробуйте снова!");
+                throw new RuntimeException("Вводимое значение Фамилия не может быть пустым,\nпопробуйте снова!");
             }
         }
 
@@ -65,8 +65,8 @@ public class InputParseFile {
             birthDate = words[3];
                 date = birthDate.split("\\.");
             if (date[0].equals("")||date[1].equals("")||date[2].equals("")) {
-                throw new RuntimeException("Задан неверный формат, формат даты должен быть dd.mm.yyyy,\n" +
-                        "попробуйте снова!");
+                throw new RuntimeException("Задан неверный формат Дата Рождения, формат даты должен быть dd.mm.yyyy," +
+                        "\nпопробуйте снова!");
             }
         }
 
@@ -75,7 +75,7 @@ public class InputParseFile {
             System.out.println("Enter number phone:");
             String number = words[4];
             if (number.equals("")) {
-                throw new RuntimeException("Вводимое значение не может быть пустым,\nпопробуйте снова!");
+                throw new RuntimeException("Вводимое значение Номер Телефона не может быть пустым,\nпопробуйте снова!");
             }
             numberPhone = Long.parseLong(number);
         } catch (NumberFormatException e) {
@@ -89,7 +89,8 @@ public class InputParseFile {
             String m = "m";
             gen = words[5];
             if (gen.length() > 1) {
-                throw new RuntimeException("Вы ввели слишком много символов \nпопробуйте снова!");
+                throw new RuntimeException("Вы ввели слишком много символов в параметр Пол правильно - f/m" +
+                        "\nпопробуйте снова!");
             }
             if (gen.equals(f) || gen.equals(m)) {
                 gender = gen.charAt(0);
